@@ -15,11 +15,11 @@ export const metadata: Metadata = {
     "AgentCupid",
     "Full-Stack Developer",
   ],
-  metadataBase: new URL("https://mehul.ai"),
+  metadataBase: new URL("https://mehulai.com"),
   openGraph: {
     title: "Mehul — Software Engineer & AI Builder",
     description: "Building AI-powered products that solve real problems.",
-    url: "https://mehul.ai",
+    url: "https://mehulai.com",
     siteName: "Mehul",
     type: "website",
   },
