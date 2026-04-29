@@ -10,8 +10,7 @@ export default function About() {
       <div
         className="absolute -left-32 top-1/2 -translate-y-1/2 w-[500px] h-[500px] opacity-10"
         style={{
-          background:
-            "radial-gradient(circle, rgba(5,150,105,0.3), transparent 70%)",
+          background: "radial-gradient(circle, var(--accent) 0%, transparent 70%)",
           borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%",
         }}
       />
@@ -24,7 +23,10 @@ export default function About() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
+          <h2
+            className="text-4xl md:text-5xl font-bold mb-4"
+            style={{ color: "var(--text-primary)" }}
+          >
             About
           </h2>
         </motion.div>
@@ -36,16 +38,21 @@ export default function About() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7, delay: 0.1 }}
         >
-          <div className="space-y-4 text-slate-600 text-lg leading-relaxed">
+          <div
+            className="space-y-4 text-lg leading-relaxed"
+            style={{ color: "var(--text-secondary)" }}
+          >
             <p>
-              Hey, I&apos;m <strong className="text-slate-800">Mehul</strong> — a
+              Hey, I&apos;m{" "}
+              <strong style={{ color: "var(--text-primary)" }}>Mehul</strong> — a
               Software Engineer at{" "}
-              <strong className="text-slate-800">Vanguard</strong> building
-              things with AI in my spare time.
+              <strong style={{ color: "var(--text-primary)" }}>Vanguard</strong>{" "}
+              building things with AI in my spare time.
             </p>
             <p>
-              Based in <strong className="text-slate-800">Harrisburg, PA</strong>, I
-              spend my days working on enterprise software and my nights building
+              Based in{" "}
+              <strong style={{ color: "var(--text-primary)" }}>Harrisburg, PA</strong>,
+              I spend my days working on enterprise software and my nights building
               AI-powered products from scratch — full stack, end to end.
             </p>
             <p>
@@ -57,19 +64,31 @@ export default function About() {
           </div>
 
           {/* Skills grid */}
-          <div className="mt-8 pt-8 border-t border-green-100">
-            <p className="text-sm text-slate-400 font-medium mb-4 uppercase tracking-wider">
+          <div
+            className="mt-8 pt-8"
+            style={{ borderTop: "1px solid var(--border)" }}
+          >
+            <p
+              className="text-sm font-medium mb-4 uppercase tracking-wider"
+              style={{ color: "var(--text-tertiary)" }}
+            >
               Tech I work with
             </p>
             <div className="flex flex-wrap gap-2">
               {skills.map((skill, i) => (
                 <motion.span
                   key={skill}
-                  className="px-4 py-2 rounded-2xl bg-green-50 text-green-800 text-sm font-medium border border-green-100 hover:bg-green-100 transition-colors cursor-default"
+                  className="skill-tag px-4 py-2 rounded-2xl text-sm font-medium cursor-default transition-all"
+                  style={{
+                    background: "var(--bg-hover)",
+                    color: "var(--accent)",
+                    border: "1px solid var(--border)",
+                  }}
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: i * 0.03 }}
+                  transition={{ duration: 0.3, delay: i * 0.02 }}
+                  whileHover={{ scale: 1.05 }}
                 >
                   {skill}
                 </motion.span>

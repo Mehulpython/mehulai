@@ -11,6 +11,7 @@ export interface Project {
   status: 'live' | 'in-development' | 'concept';
   emoji: string;
   color: string;
+  category: 'ai' | 'saas' | 'mobile' | 'tool';
 }
 
 export const projects: Project[] = [
@@ -37,6 +38,7 @@ export const projects: Project[] = [
     status: "live",
     emoji: "🤝",
     color: "#7C3AED",
+    category: "ai",
   },
   {
     slug: "agentcupid",
@@ -60,6 +62,7 @@ export const projects: Project[] = [
     status: "live",
     emoji: "💘",
     color: "#E11D48",
+    category: "ai",
   },
   {
     slug: "nexaflow",
@@ -83,72 +86,7 @@ export const projects: Project[] = [
     status: "live",
     emoji: "⚡",
     color: "#0891B2",
-  },
-  {
-    slug: "hoteldirect",
-    name: "HotelDirect",
-    tagline: "Direct booking platform for independent hotels",
-    description: "All-in-one platform replacing OTA dependency with direct bookings, AI guest experience, and unified operations.",
-    longDescription: [
-      "US independent hotels pay $15-20 billion/year in OTA commissions (15-25% per booking). HotelDirect replaces 5-6 separate tools with one platform.",
-      "Combines a smart booking engine, website builder, AI guest messaging via WhatsApp/SMS, reputation manager with AI review responses, and an analytics dashboard with commission savings tracking.",
-    ],
-    features: [
-      "Smart booking engine (1-line embed)",
-      "Hospitality website builder",
-      "AI guest messaging (WhatsApp/SMS)",
-      "Reputation manager with AI responses",
-      "Commission savings analytics",
-      "Direct booking optimization",
-    ],
-    techStack: ["Next.js", "TypeScript", "PostgreSQL", "Stripe", "WhatsApp API", "AI/LLM"],
-    status: "in-development",
-    emoji: "🏨",
-    color: "#0369A1",
-  },
-  {
-    slug: "nexadesk",
-    name: "NexaDesk",
-    tagline: "AI self-service kiosk platform",
-    description: "Universal smart kiosk system turning any tablet into an intelligent self-service kiosk for hotels, restaurants, retail, and clinics.",
-    longDescription: [
-      "NexaDesk transforms tablets into AI-powered self-service kiosks. Designed for hospitality, food service, retail, and healthcare — it combines motion detection, voice AI, and intuitive touch interfaces.",
-      "Uses MediaPipe for presence detection, ElevenLabs for natural voice responses, and Stripe Terminal for payments. Fully customizable per industry.",
-    ],
-    features: [
-      "Tablet-based smart kiosk",
-      "Motion detection (MediaPipe)",
-      "Voice AI (ElevenLabs TTS)",
-      "Stripe Terminal payments",
-      "Multi-industry templates",
-      "Real-time analytics dashboard",
-    ],
-    techStack: ["React Native", "Expo", "FastAPI", "PostgreSQL", "Redis", "Stripe Terminal", "GPT-4o"],
-    status: "in-development",
-    emoji: "🖥️",
-    color: "#7C3AED",
-  },
-  {
-    slug: "futurefaceai",
-    name: "FutureFace AI",
-    tagline: "AI baby face generator",
-    description: "AI-powered baby face generator using advanced facial genetics analysis to create offspring predictions from parent photos.",
-    longDescription: [
-      "Upload two parent photos and FutureFace AI uses GPT-5 Vision and Flux Pro to generate morphologically accurate baby face predictions. It analyzes facial features, genetics markers, and morphological traits.",
-      "Built as a fun, viral consumer app with shareable results, pricing tiers, and a mobile-ready interface.",
-    ],
-    features: [
-      "Dual photo upload & analysis",
-      "GPT-5 Vision facial genetics",
-      "Flux Pro image generation",
-      "Mobile-responsive design",
-      "Shareable results",
-      "Multiple generation styles",
-    ],
-    techStack: ["Next.js", "TypeScript", "GPT-5 Vision", "Flux Pro", "Tailwind CSS", "Capacitor"],
-    status: "in-development",
-    emoji: "👶",
-    color: "#DB2777",
+    category: "saas",
   },
   {
     slug: "snaplean",
@@ -171,6 +109,76 @@ export const projects: Project[] = [
     status: "in-development",
     emoji: "📸",
     color: "#16A34A",
+    category: "mobile",
+  },
+  {
+    slug: "hoteldirect",
+    name: "HotelDirect",
+    tagline: "Direct booking platform for independent hotels",
+    description: "All-in-one platform replacing OTA dependency with direct bookings, AI guest experience, and unified operations.",
+    longDescription: [
+      "US independent hotels pay $15-20 billion/year in OTA commissions (15-25% per booking). HotelDirect replaces 5-6 separate tools with one platform.",
+      "Combines a smart booking engine, website builder, AI guest messaging via WhatsApp/SMS, reputation manager with AI review responses, and an analytics dashboard with commission savings tracking.",
+    ],
+    features: [
+      "Smart booking engine (1-line embed)",
+      "Hospitality website builder",
+      "AI guest messaging (WhatsApp/SMS)",
+      "Reputation manager with AI responses",
+      "Commission savings analytics",
+      "Direct booking optimization",
+    ],
+    techStack: ["Next.js", "TypeScript", "PostgreSQL", "Stripe", "WhatsApp API", "AI/LLM"],
+    status: "in-development",
+    emoji: "🏨",
+    color: "#0369A1",
+    category: "saas",
+  },
+  {
+    slug: "nexadesk",
+    name: "NexaDesk",
+    tagline: "AI self-service kiosk platform",
+    description: "Universal smart kiosk system turning any tablet into an intelligent self-service kiosk for hotels, restaurants, retail, and clinics.",
+    longDescription: [
+      "NexaDesk transforms tablets into AI-powered self-service kiosks. Designed for hospitality, food service, retail, and healthcare — it combines motion detection, voice AI, and intuitive touch interfaces.",
+      "Uses MediaPipe for presence detection, ElevenLabs for natural voice responses, and Stripe Terminal for payments. Fully customizable per industry.",
+    ],
+    features: [
+      "Tablet-based smart kiosk",
+      "Motion detection (MediaPipe)",
+      "Voice AI (ElevenLabs TTS)",
+      "Stripe Terminal payments",
+      "Multi-industry templates",
+      "Real-time analytics dashboard",
+    ],
+    techStack: ["React Native", "Expo", "FastAPI", "PostgreSQL", "Redis", "Stripe Terminal", "GPT-4o"],
+    status: "in-development",
+    emoji: "🖥️",
+    color: "#7C3AED",
+    category: "saas",
+  },
+  {
+    slug: "futurefaceai",
+    name: "FutureFace AI",
+    tagline: "AI baby face generator",
+    description: "AI-powered baby face generator using advanced facial genetics analysis to create offspring predictions from parent photos.",
+    longDescription: [
+      "Upload two parent photos and FutureFace AI uses GPT-5 Vision and Flux Pro to generate morphologically accurate baby face predictions. It analyzes facial features, genetics markers, and morphological traits.",
+      "Built as a fun, viral consumer app with shareable results, pricing tiers, and a mobile-ready interface.",
+    ],
+    features: [
+      "Dual photo upload & analysis",
+      "GPT-5 Vision facial genetics",
+      "Flux Pro image generation",
+      "Mobile-responsive design",
+      "Shareable results",
+      "Multiple generation styles",
+    ],
+    techStack: ["Next.js", "TypeScript", "GPT-5 Vision", "Flux Pro", "Tailwind CSS", "Capacitor"],
+    status: "in-development",
+    emoji: "👶",
+    color: "#DB2777",
+    category: "ai",
   },
   {
     slug: "reelmagic",
@@ -193,6 +201,7 @@ export const projects: Project[] = [
     status: "concept",
     emoji: "🎬",
     color: "#9333EA",
+    category: "ai",
   },
 ];
 
@@ -202,3 +211,57 @@ export const skills = [
   "Stripe", "AI/LLM", "OpenAI", "React Native", "Expo", "Git",
   "REST APIs", "GraphQL", "Framer Motion", "Capacitor",
 ];
+
+export const typingPhrases = [
+  "Software Engineer",
+  "AI Builder",
+  "Full-Stack Developer",
+  "Product Creator",
+];
+
+export const stats = [
+  { label: "Projects Built", value: 8, suffix: "" },
+  { label: "Live Products", value: 3, suffix: "" },
+  { label: "API Routes", value: 141, suffix: "+" },
+  { label: "Technologies", value: 22, suffix: "" },
+];
+
+export interface Experience {
+  role: string;
+  company: string;
+  period: string;
+  description: string;
+  highlights: string[];
+}
+
+export const experiences: Experience[] = [
+  {
+    role: "Software Engineer",
+    company: "Vanguard",
+    period: "2023 — Present",
+    description: "Building enterprise-grade financial software for one of the world's largest investment management companies.",
+    highlights: [
+      "Full-stack development with modern web technologies",
+      "Enterprise application architecture & design patterns",
+      "Collaborating across cross-functional teams",
+    ],
+  },
+  {
+    role: "Independent AI Builder",
+    company: "Side Projects",
+    period: "2022 — Present",
+    description: "Building AI-powered SaaS products end-to-end — from concept to production deployment.",
+    highlights: [
+      "8 products spanning AI, SaaS, and mobile",
+      "3 live products with real users",
+      "Full-stack: frontend, backend, database, payments, deployment",
+    ],
+  },
+];
+
+export const socials = {
+  github: "https://github.com/Mehulpython",
+  email: "mehulkanadiya@gmail.com",
+  linkedin: "https://linkedin.com/in/mehulkanadiya",
+  twitter: "https://x.com/Mehulpython",
+};
