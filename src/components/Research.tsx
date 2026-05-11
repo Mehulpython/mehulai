@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { BookOpen, Award, ExternalLink, GraduationCap, Languages, ShieldCheck } from "lucide-react";
-import { publications, conferences, education, certifications, languages } from "@/lib/data";
+import { BookOpen, Award, ExternalLink, GraduationCap, ShieldCheck } from "lucide-react";
+import { publications, conferences, education, certifications } from "@/lib/data";
 
 export default function Research() {
   return (
@@ -233,83 +233,52 @@ export default function Research() {
           </div>
         </div>
 
-        {/* Certifications & Languages */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* AWS Certifications */}
-          <div className="md:col-span-2">
-            <motion.div
-              className="flex items-center gap-3 mb-6"
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              <div className="p-2.5 rounded-xl" style={{ background: "var(--bg-hover)" }}>
-                <ShieldCheck size={22} style={{ color: "var(--accent)" }} />
-              </div>
-              <h3 className="text-xl font-bold" style={{ color: "var(--text-primary)" }}>
-                Certifications
-              </h3>
-              <span
-                className="text-xs px-2.5 py-1 rounded-full font-medium"
-                style={{ background: "var(--bg-hover)", color: "var(--text-tertiary)" }}
-              >
-                15 total
-              </span>
-            </motion.div>
-
-            {/* AWS certs group */}
-            <div className="mb-4">
-              <p className="text-xs font-semibold uppercase tracking-wider mb-2" style={{ color: "var(--accent)" }}>
-                ☁️ Amazon Web Services (7)
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {certifications.filter(c => c.category === "aws").map((cert, i) => (
-                  <motion.div
-                    key={cert.name}
-                    className="glass-card rounded-xl px-3.5 py-2.5"
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.3, delay: i * 0.04 }}
-                  >
-                    <span
-                      className="text-sm font-medium"
-                      style={{ color: "var(--text-primary)" }}
-                    >
-                      {cert.name}
-                    </span>
-                    <span
-                      className="block text-[11px]"
-                      style={{ color: "var(--text-tertiary)" }}
-                    >
-                      {cert.detail}
-                    </span>
-                  </motion.div>
-                ))}
-              </div>
+        {/* Certifications */}
+        <div>
+          <motion.div
+            className="flex items-center gap-3 mb-6"
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="p-2.5 rounded-xl" style={{ background: "var(--bg-hover)" }}>
+              <ShieldCheck size={22} style={{ color: "var(--accent)" }} />
             </div>
+            <h3 className="text-xl font-bold" style={{ color: "var(--text-primary)" }}>
+              Certifications
+            </h3>
+            <span
+              className="text-xs px-2.5 py-1 rounded-full font-medium"
+              style={{ background: "var(--bg-hover)", color: "var(--text-tertiary)" }}
+            >
+              {certifications.length} total
+            </span>
+          </motion.div>
 
-            {/* Other certs in a compact grid */}
+          {/* AWS certs group */}
+          <div className="mb-4">
+            <p className="text-xs font-semibold uppercase tracking-wider mb-2" style={{ color: "var(--accent)" }}>
+              ☁️ Amazon Web Services (7)
+            </p>
             <div className="flex flex-wrap gap-2">
-              {certifications.filter(c => c.category !== "aws").map((cert, i) => (
+              {certifications.filter(c => c.category === "aws").map((cert, i) => (
                 <motion.div
                   key={cert.name}
-                  className="rounded-lg px-3 py-1.5"
-                  style={{ background: "var(--bg-hover)", border: "1px solid var(--border)" }}
+                  className="glass-card rounded-xl px-3.5 py-2.5"
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: (i + 7) * 0.04 }}
+                  transition={{ duration: 0.3, delay: i * 0.04 }}
                 >
                   <span
-                    className="text-xs font-medium"
+                    className="text-sm font-medium"
                     style={{ color: "var(--text-primary)" }}
                   >
                     {cert.name}
                   </span>
                   <span
-                    className="block text-[10px]"
+                    className="block text-[11px]"
                     style={{ color: "var(--text-tertiary)" }}
                   >
                     {cert.detail}
@@ -319,42 +288,32 @@ export default function Research() {
             </div>
           </div>
 
-          {/* Languages */}
-          <div>
-            <motion.div
-              className="flex items-center gap-3 mb-6"
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              <div className="p-2.5 rounded-xl" style={{ background: "var(--bg-hover)" }}>
-                <Languages size={22} style={{ color: "var(--accent)" }} />
-              </div>
-              <h3 className="text-xl font-bold" style={{ color: "var(--text-primary)" }}>
-                Languages
-              </h3>
-            </motion.div>
-
-            <div className="flex flex-col gap-3">
-              {languages.map((lang, i) => (
-                <motion.span
-                  key={lang}
-                  className="px-5 py-2.5 rounded-2xl text-sm font-medium text-center"
-                  style={{
-                    background: "var(--bg-hover)",
-                    color: "var(--accent)",
-                    border: "1px solid var(--border)",
-                  }}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: i * 0.1 }}
+          {/* Other certs */}
+          <div className="flex flex-wrap gap-2">
+            {certifications.filter(c => c.category !== "aws").map((cert, i) => (
+              <motion.div
+                key={cert.name}
+                className="rounded-lg px-3 py-1.5"
+                style={{ background: "var(--bg-hover)", border: "1px solid var(--border)" }}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.3, delay: (i + 7) * 0.04 }}
+              >
+                <span
+                  className="text-xs font-medium"
+                  style={{ color: "var(--text-primary)" }}
                 >
-                  {lang}
-                </motion.span>
-              ))}
-            </div>
+                  {cert.name}
+                </span>
+                <span
+                  className="block text-[10px]"
+                  style={{ color: "var(--text-tertiary)" }}
+                >
+                  {cert.detail}
+                </span>
+              </motion.div>
+            ))}
           </div>
         </div>
       </div>

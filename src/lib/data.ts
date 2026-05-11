@@ -483,11 +483,7 @@ export const certifications = [
   { name: "ECFMG Certified", detail: "Educational Commission for Foreign Medical Graduate", category: "medical" },
   { name: "USMLE", detail: "Steps 1, 2 CK, 2 CS — All Passed", category: "medical" },
   { name: "HIPAA Certified", detail: "Health Privacy Compliance", category: "medical" },
-  { name: "CITI Program", detail: "Human Subjects Research", category: "medical" },
-  { name: "NIH Certificate", detail: "Research Ethics Training", category: "medical" },
-];
 
-export const languages = ["English", "Hindi", "Gujarati"];
 
 export const socials = {
   github: "https://github.com/Mehulpython",
