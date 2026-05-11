@@ -106,7 +106,9 @@ export const projects: Project[] = [
       "Android app (Capacitor)",
     ],
     techStack: ["Next.js", "FastAPI", "Python", "PostgreSQL", "SQLAlchemy", "Capacitor", "AI Vision"],
-    status: "in-development",
+    liveUrl: "https://snaplean.life",
+    githubUrl: "https://github.com/Mehulpython/snaplean",
+    status: "live",
     emoji: "📸",
     color: "#16A34A",
     category: "mobile",
@@ -226,7 +228,7 @@ export const stats = [
   { label: "Research Citations", value: 259, suffix: "+" },
   { label: "Publications", value: 6, suffix: "" },
   { label: "Projects Built", value: 8, suffix: "" },
-  { label: "Live Products", value: 3, suffix: "" },
+  { label: "Live Products", value: 4, suffix: "" },
 ];
 
 export interface Experience {
