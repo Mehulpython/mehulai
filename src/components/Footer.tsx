@@ -61,6 +61,16 @@ export default function Footer() {
               <span className="font-medium text-sm">LinkedIn</span>
             </a>
             <a
+              href={socials.scholar}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-5 py-3 rounded-2xl glass-card transition-all hover:-translate-y-0.5"
+              style={{ color: "var(--text-secondary)" }}
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
+              <span className="font-medium text-sm">Scholar</span>
+            </a>
+            <a
               href={`mailto:${socials.email}`}
               className="flex items-center gap-2 px-5 py-3 rounded-2xl glass-card transition-all hover:-translate-y-0.5"
               style={{ color: "var(--text-secondary)" }}

@@ -5,9 +5,10 @@ import { Menu, X, Sun, Moon, Code2 } from "lucide-react";
 
 const navLinks = [
   { href: "#home", label: "Home" },
-  { href: "#projects", label: "Projects" },
-  { href: "#experience", label: "Experience" },
   { href: "#about", label: "About" },
+  { href: "#experience", label: "Experience" },
+  { href: "#research", label: "Research" },
+  { href: "#projects", label: "Projects" },
   { href: "#contact", label: "Contact" },
 ];
 

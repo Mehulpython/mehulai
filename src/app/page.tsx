@@ -1,8 +1,9 @@
 import Hero from "@/components/Hero";
 import Stats from "@/components/Stats";
-import Projects from "@/components/Projects";
-import Experience from "@/components/Experience";
 import About from "@/components/About";
+import Experience from "@/components/Experience";
+import Research from "@/components/Research";
+import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
@@ -16,9 +17,10 @@ export default function Home() {
       <main>
         <Hero />
         <Stats />
-        <Projects />
-        <Experience />
         <About />
+        <Experience />
+        <Research />
+        <Projects />
         <Contact />
       </main>
       <Footer />

@@ -114,6 +114,16 @@ export default function Contact() {
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
               </a>
               <a
+                href={socials.scholar}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="glass-card rounded-xl p-3 transition-all hover:-translate-y-0.5"
+                style={{ color: "var(--text-secondary)" }}
+                title="Google Scholar"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14v7"/></svg>
+              </a>
+              <a
                 href={`mailto:${socials.email}`}
                 className="glass-card rounded-xl p-3 transition-all hover:-translate-y-0.5"
                 style={{ color: "var(--text-secondary)" }}

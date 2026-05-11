@@ -47,19 +47,23 @@ export default function About() {
               <strong style={{ color: "var(--text-primary)" }}>Mehul</strong> — a
               Software Engineer at{" "}
               <strong style={{ color: "var(--text-primary)" }}>Vanguard</strong>{" "}
-              building things with AI in my spare time.
+              with an unusual background.
+            </p>
+            <p>
+              I started in medicine — earning my <strong style={{ color: "var(--text-primary)" }}>MBBS (MD)</strong> from India and{" "}
+              <strong style={{ color: "var(--text-primary)" }}>MPH</strong> from Ohio University. I spent years
+              in clinical research at <strong style={{ color: "var(--text-primary)" }}>Cleveland Clinic</strong>,
+              publishing 6 peer-reviewed papers that have been cited{" "}
+              <strong style={{ color: "var(--text-primary)" }}>259+ times</strong> in top medical journals. My work
+              spanned gastroenterology, diabetes, and public health.
             </p>
             <p>
               Based in{" "}
               <strong style={{ color: "var(--text-primary)" }}>Harrisburg, PA</strong>,
-              I spend my days working on enterprise software and my nights building
-              AI-powered products from scratch — full stack, end to end.
-            </p>
-            <p>
-              I believe in building complete products, not just prototypes. Every
-              project here ships with real APIs, databases, authentication, and
-              payment systems. From negotiation platforms to baby face generators —
-              if it&apos;s interesting, I build it.
+              I now spend my days building enterprise software and my nights creating
+              AI-powered products from scratch. From clinical trials to code —
+              the common thread has always been{" "}
+              <strong style={{ color: "var(--text-primary)" }}>solving real problems with data</strong>.
             </p>
           </div>
 
