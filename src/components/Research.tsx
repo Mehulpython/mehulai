@@ -234,9 +234,9 @@ export default function Research() {
         </div>
 
         {/* Certifications & Languages */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Certifications */}
-          <div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* AWS Certifications */}
+          <div className="md:col-span-2">
             <motion.div
               className="flex items-center gap-3 mb-6"
               initial={{ opacity: 0, x: -20 }}
@@ -250,27 +250,66 @@ export default function Research() {
               <h3 className="text-xl font-bold" style={{ color: "var(--text-primary)" }}>
                 Certifications
               </h3>
+              <span
+                className="text-xs px-2.5 py-1 rounded-full font-medium"
+                style={{ background: "var(--bg-hover)", color: "var(--text-tertiary)" }}
+              >
+                15 total
+              </span>
             </motion.div>
 
+            {/* AWS certs group */}
+            <div className="mb-4">
+              <p className="text-xs font-semibold uppercase tracking-wider mb-2" style={{ color: "var(--accent)" }}>
+                ☁️ Amazon Web Services (7)
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {certifications.filter(c => c.category === "aws").map((cert, i) => (
+                  <motion.div
+                    key={cert.name}
+                    className="glass-card rounded-xl px-3.5 py-2.5"
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: i * 0.04 }}
+                  >
+                    <span
+                      className="text-sm font-medium"
+                      style={{ color: "var(--text-primary)" }}
+                    >
+                      {cert.name}
+                    </span>
+                    <span
+                      className="block text-[11px]"
+                      style={{ color: "var(--text-tertiary)" }}
+                    >
+                      {cert.detail}
+                    </span>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Other certs in a compact grid */}
             <div className="flex flex-wrap gap-2">
-              {certifications.map((cert, i) => (
+              {certifications.filter(c => c.category !== "aws").map((cert, i) => (
                 <motion.div
                   key={cert.name}
-                  className="glass-card rounded-xl px-4 py-3"
+                  className="rounded-lg px-3 py-1.5"
+                  style={{ background: "var(--bg-hover)", border: "1px solid var(--border)" }}
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: i * 0.05 }}
-                  title={cert.detail}
+                  transition={{ duration: 0.3, delay: (i + 7) * 0.04 }}
                 >
                   <span
-                    className="text-sm font-medium"
+                    className="text-xs font-medium"
                     style={{ color: "var(--text-primary)" }}
                   >
                     {cert.name}
                   </span>
                   <span
-                    className="block text-[11px]"
+                    className="block text-[10px]"
                     style={{ color: "var(--text-tertiary)" }}
                   >
                     {cert.detail}
@@ -297,11 +336,11 @@ export default function Research() {
               </h3>
             </motion.div>
 
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-col gap-3">
               {languages.map((lang, i) => (
                 <motion.span
                   key={lang}
-                  className="px-5 py-2.5 rounded-2xl text-sm font-medium"
+                  className="px-5 py-2.5 rounded-2xl text-sm font-medium text-center"
                   style={{
                     background: "var(--bg-hover)",
                     color: "var(--accent)",

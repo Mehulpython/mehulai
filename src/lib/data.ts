@@ -209,19 +209,21 @@ export const projects: Project[] = [
 ];
 
 export const skills = [
-  "TypeScript", "React", "Next.js", "Node.js", "Python", "FastAPI",
-  "PostgreSQL", "Prisma", "Redis", "Tailwind CSS", "Docker", "AWS",
+  "Python", "TypeScript", "React", "Next.js", "Node.js", "Java",
+  "PostgreSQL", "MongoDB", "Redis", "Docker", "Kubernetes",
+  "AWS", "PySpark", "Databricks", "Scala",
+  "Flask", "Django", "FastAPI", "Tailwind CSS",
   "Stripe", "AI/LLM", "OpenAI", "React Native", "Expo", "Git",
-  "REST APIs", "GraphQL", "Framer Motion", "Capacitor",
+  "REST APIs", "CI/CD", "Framer Motion", "Power BI",
 ];
 
 export const typingPhrases = [
-  "Software Engineer",
+  "AWS & Python Developer",
   "AI Builder",
   "Published Researcher",
-  "Full-Stack Developer",
+  "Full-Stack Engineer",
   "Med → Tech",
-  "Product Creator",
+  "7× AWS Certified",
 ];
 
 export const stats = [
@@ -241,14 +243,39 @@ export interface Experience {
 
 export const experiences: Experience[] = [
   {
-    role: "Software Engineer",
+    role: "AWS-Python-Spark Developer",
     company: "Vanguard",
     period: "2023 — Present",
-    description: "Building enterprise-grade financial software for one of the world's largest investment management companies.",
+    description: "Lead developer building PII deidentification, data validation, and risk assessment systems on AWS using PySpark, Scala, and Python.",
     highlights: [
-      "Full-stack development with modern web technologies",
-      "Enterprise application architecture & design patterns",
-      "Collaborating across cross-functional teams",
+      "Lead Scala-based PII deidentification app + PySpark Glue jobs",
+      "Onboarded 15 datalakes with robust data integration strategies",
+      "Improved column type prediction accuracy by 20% using AWS Bedrock LLM",
+      "Analyzed 5,000+ tables for Collibra metadata governance",
+    ],
+  },
+  {
+    role: "AWS-Python Developer",
+    company: "Vanguard (via Deloitte)",
+    period: "2022 — 2023",
+    description: "Modernized mainframe APIs to AWS infrastructure — migrating DB2 databases and building RESTful APIs with Python and AWS services.",
+    highlights: [
+      "Modernized mainframe APIs to AWS (API Gateway, Lambda, S3)",
+      "Configured Redshift IAM roles, security, and backup strategies",
+      "Built RESTful APIs with Node.js/Express and Python/Flask",
+      "Developed visualizations with Power BI and Quicksight",
+    ],
+  },
+  {
+    role: "AWS/Python Developer",
+    company: "H&M Insurance / Lakeland Bank",
+    period: "2014 — 2022",
+    description: "Full-stack AWS/Python development across insurance and banking — ETL pipelines, container orchestration, and data processing workflows.",
+    highlights: [
+      "Built ETL pipelines with EMR, Spark, Hive on AWS",
+      "Led Kubernetes container orchestration for scalable deployments",
+      "Developed PySpark applications in Databricks & AWS EMR clusters",
+      "Reduced manual metadata review efforts by 25%",
     ],
   },
   {
@@ -258,7 +285,7 @@ export const experiences: Experience[] = [
     description: "Building AI-powered SaaS products end-to-end — from concept to production deployment.",
     highlights: [
       "8 products spanning AI, SaaS, and mobile",
-      "3 live products with real users",
+      "4 live products with real users",
       "Full-stack: frontend, backend, database, payments, deployment",
     ],
   },
@@ -420,6 +447,16 @@ export const education: Education[] = [
     emoji: "🎓",
   },
   {
+    degree: "Associate in Information Systems",
+    institution: "Cuyahoga Community College, Cleveland, OH",
+    period: "2014 — 2016",
+    details: [
+      "Focus on software development and information systems",
+      "Foundation for transition from medicine to technology",
+    ],
+    emoji: "💻",
+  },
+  {
     degree: "MBBS (MD) — Bachelor of Medicine & Bachelor of Surgery",
     institution: "Pramukhswami Medical College, Sardar Patel University, India",
     period: "2001 — 2007",
@@ -433,11 +470,21 @@ export const education: Education[] = [
 ];
 
 export const certifications = [
-  { name: "ECFMG Certified", detail: "Educational Commission for Foreign Medical Graduate" },
-  { name: "USMLE", detail: "Steps 1, 2 CK, 2 CS — All Passed" },
-  { name: "CITI Program", detail: "Human Subjects Research Completion" },
-  { name: "NIH Certificate", detail: "Research Ethics Training" },
-  { name: "HIPAA Certified", detail: "Health Privacy Compliance" },
+  { name: "AWS Solutions Architect", detail: "Associate — July 2022", category: "aws" },
+  { name: "AWS Developer", detail: "Associate — August 2022", category: "aws" },
+  { name: "AWS SysOps Administrator", detail: "Associate — August 2022", category: "aws" },
+  { name: "AWS DevOps Engineer", detail: "Professional — September 2022", category: "aws" },
+  { name: "AWS Data Analytics", detail: "Specialty — October 2022", category: "aws" },
+  { name: "AWS Database", detail: "Specialty — November 2022", category: "aws" },
+  { name: "AWS Security", detail: "Specialty — December 2022", category: "aws" },
+  { name: "PCAP Python Programming", detail: "Certified Associate — August 2023", category: "python" },
+  { name: "SAFe 5 PO/PM", detail: "Scaled Agile Framework", category: "agile" },
+  { name: "Databricks Lakehouse", detail: "Fundamentals", category: "data" },
+  { name: "ECFMG Certified", detail: "Educational Commission for Foreign Medical Graduate", category: "medical" },
+  { name: "USMLE", detail: "Steps 1, 2 CK, 2 CS — All Passed", category: "medical" },
+  { name: "HIPAA Certified", detail: "Health Privacy Compliance", category: "medical" },
+  { name: "CITI Program", detail: "Human Subjects Research", category: "medical" },
+  { name: "NIH Certificate", detail: "Research Ethics Training", category: "medical" },
 ];
 
 export const languages = ["English", "Hindi", "Gujarati"];
