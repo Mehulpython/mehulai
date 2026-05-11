@@ -482,7 +482,6 @@ export const certifications = [
   { name: "Databricks Lakehouse", detail: "Fundamentals", category: "data" },
   { name: "ECFMG Certified", detail: "Educational Commission for Foreign Medical Graduate", category: "medical" },
   { name: "USMLE", detail: "Steps 1, 2 CK, 2 CS — All Passed", category: "medical" },
-  { name: "HIPAA Certified", detail: "Health Privacy Compliance", category: "medical" },
 ];
 
 export const socials = {
