@@ -492,7 +492,7 @@ export const languages = ["English", "Hindi", "Gujarati"];
 export const socials = {
   github: "https://github.com/Mehulpython",
   email: "mehulkanadiya@gmail.com",
-  linkedin: "https://linkedin.com/in/mehulkanadiya",
+  linkedin: "https://www.linkedin.com/in/mehul-kanadiya-5b0b09233",
   twitter: "https://x.com/Mehulpython",
   scholar: "https://scholar.google.com/citations?user=fObzCLIAAAAJ",
 };

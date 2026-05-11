@@ -24,19 +24,7 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
-      {/* View Source FAB */}
-      <a
-        href="https://github.com/Mehulpython/mehulai"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="view-source-fab"
-      >
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <polyline points="16 18 22 12 16 6" />
-          <polyline points="8 6 2 12 8 18" />
-        </svg>
-        <span className="hidden sm:inline">Source</span>
-      </a>
+      {/* View Source FAB removed */}
     </>
   );
 }
