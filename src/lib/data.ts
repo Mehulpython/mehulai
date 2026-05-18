@@ -236,7 +236,6 @@ export const stats = [
 export interface Experience {
   role: string;
   company: string;
-  period: string;
   description: string;
   highlights: string[];
 }
@@ -245,7 +244,6 @@ export const experiences: Experience[] = [
   {
     role: "AWS-Python-Spark Developer",
     company: "Vanguard",
-    period: "2023 — Present",
     description: "Lead developer building PII deidentification, data validation, and risk assessment systems on AWS using PySpark, Scala, and Python.",
     highlights: [
       "Lead Scala-based PII deidentification app + PySpark Glue jobs",
@@ -257,7 +255,6 @@ export const experiences: Experience[] = [
   {
     role: "AWS-Python Developer",
     company: "Vanguard (via Deloitte)",
-    period: "2022 — 2023",
     description: "Modernized mainframe APIs to AWS infrastructure — migrating DB2 databases and building RESTful APIs with Python and AWS services.",
     highlights: [
       "Modernized mainframe APIs to AWS (API Gateway, Lambda, S3)",
@@ -269,7 +266,6 @@ export const experiences: Experience[] = [
   {
     role: "AWS/Python Developer",
     company: "H&M Insurance / Lakeland Bank",
-    period: "2014 — 2022",
     description: "Full-stack AWS/Python development across insurance and banking — ETL pipelines, container orchestration, and data processing workflows.",
     highlights: [
       "Built ETL pipelines with EMR, Spark, Hive on AWS",
@@ -281,7 +277,6 @@ export const experiences: Experience[] = [
   {
     role: "Independent AI Builder",
     company: "Side Projects",
-    period: "2022 — Present",
     description: "Building AI-powered SaaS products end-to-end — from concept to production deployment.",
     highlights: [
       "8 products spanning AI, SaaS, and mobile",
@@ -292,7 +287,6 @@ export const experiences: Experience[] = [
   {
     role: "Research Assistant",
     company: "Cleveland Clinic",
-    period: "2012 — 2013",
     description: "Conducted clinical research at one of the nation's top hospitals — preparing protocols, statistical analysis, and manuscripts.",
     highlights: [
       "Co-authored 6 peer-reviewed publications with 259+ citations",
@@ -303,7 +297,6 @@ export const experiences: Experience[] = [
   {
     role: "Medical Scribe / Graduate Assistant",
     company: "Ohio University",
-    period: "2008 — 2012",
     description: "Supported clinical documentation at the Diabetes & Endocrine Center while completing MPH and serving as graduate assistant.",
     highlights: [
       "Graduate Assistant — Dept. of Social and Public Health",
@@ -314,7 +307,6 @@ export const experiences: Experience[] = [
   {
     role: "Resident Medical Officer",
     company: "Wockhardt Hospital (Harvard Medical International)",
-    period: "2007 — 2008",
     description: "Provided continuous on-site medical support in a Harvard-affiliated hospital — ward rounds, clinical procedures, and patient care.",
     highlights: [
       "48+ hours/week clinical duties",

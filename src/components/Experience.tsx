@@ -70,20 +70,12 @@ export default function Experience() {
                     >
                       {exp.role}
                     </h3>
-                    <div className="flex flex-wrap items-center gap-2">
-                      <span
-                        className="text-sm font-medium"
-                        style={{ color: "var(--accent)" }}
-                      >
-                        {exp.company}
-                      </span>
-                      <span
-                        className="text-xs"
-                        style={{ color: "var(--text-tertiary)" }}
-                      >
-                        · {exp.period}
-                      </span>
-                    </div>
+                    <span
+                      className="text-sm font-medium"
+                      style={{ color: "var(--accent)" }}
+                    >
+                      {exp.company}
+                    </span>
                   </div>
                 </div>
 
