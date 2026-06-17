@@ -2,14 +2,14 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ExternalLink } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { projects } from "@/lib/data";
 
 const filters = [
   { key: "all", label: "All" },
-  { key: "live", label: "● Live" },
-  { key: "in-development", label: "◌ Building" },
-  { key: "concept", label: "○ Concept" },
+  { key: "live", label: "Live" },
+  { key: "in-development", label: "Building" },
+  { key: "concept", label: "Concept" },
 ] as const;
 
 type FilterKey = (typeof filters)[number]["key"];
@@ -23,186 +23,157 @@ export default function Projects() {
       : projects.filter((p) => p.status === activeFilter);
 
   return (
-    <section id="projects" className="relative py-24 px-6">
-      {/* Organic background blob */}
-      <div
-        className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full opacity-10 -translate-y-1/2 translate-x-1/3"
-        style={{
-          background: "radial-gradient(circle, var(--accent) 0%, transparent 70%)",
-          opacity: 0.08,
-        }}
-      />
-
-      <div className="max-w-6xl mx-auto relative">
+    <section id="projects" className="relative py-28 px-6">
+      <div className="max-w-5xl mx-auto">
+        {/* Header */}
         <motion.div
-          className="text-center mb-12"
+          className="mb-12"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6 }}
         >
-          <h2
-            className="text-4xl md:text-5xl font-bold mb-4"
-            style={{ color: "var(--text-primary)" }}
-          >
+          <p className="section-label mb-3">Work</p>
+          <h2 className="font-display text-4xl md:text-5xl font-bold mb-3" style={{ color: "var(--text-primary)" }}>
             Projects
           </h2>
-          <p className="text-lg max-w-xl mx-auto" style={{ color: "var(--text-secondary)" }}>
+          <p className="text-base max-w-lg" style={{ color: "var(--text-secondary)" }}>
             Building AI-powered products that solve real problems across industries.
           </p>
         </motion.div>
 
-        {/* Filter pills */}
+        {/* Filters */}
         <motion.div
-          className="flex flex-wrap justify-center gap-2 mb-10"
+          className="flex flex-wrap gap-2 mb-8"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          transition={{ duration: 0.4, delay: 0.2 }}
         >
           {filters.map((f) => (
             <button
               key={f.key}
               onClick={() => setActiveFilter(f.key)}
-              className={`filter-pill px-4 py-2 rounded-full text-sm font-medium cursor-pointer ${
-                activeFilter === f.key ? "active" : ""
-              }`}
+              className="px-3.5 py-1.5 rounded-full text-xs font-semibold cursor-pointer transition-all"
               style={{
                 background: activeFilter === f.key ? "var(--accent)" : "transparent",
                 color: activeFilter === f.key ? "white" : "var(--text-secondary)",
-                border: `1px solid ${activeFilter === f.key ? "var(--accent)" : "var(--border)"}`,
+                border: `1px solid ${activeFilter === f.key ? "var(--accent)" : "var(--border-strong)"}`,
               }}
             >
               {f.label}
+              <span className="ml-1.5 opacity-60">
+                {f.key === "all"
+                  ? projects.length
+                  : projects.filter((p) => p.status === f.key).length}
+              </span>
             </button>
           ))}
         </motion.div>
 
-        {/* Project grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Bento grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <AnimatePresence mode="popLayout">
-            {filtered.map((project, index) => (
-              <motion.a
-                key={project.slug}
-                href={`/projects/${project.slug}`}
-                className="group block"
-                layout
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
-              >
-                <div
-                  className="glass-card rounded-3xl p-6 h-full transition-all duration-300 group-hover:-translate-y-1"
-                  style={{
-                    boxShadow: "0 4px 16px var(--shadow-color)",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.boxShadow = "0 12px 40px var(--shadow-color)";
-                    e.currentTarget.style.borderColor = "var(--accent)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.boxShadow = "0 4px 16px var(--shadow-color)";
-                    e.currentTarget.style.borderColor = "var(--border)";
-                  }}
+            {filtered.map((project, index) => {
+              const isFeatured = index === 0 && activeFilter === "all";
+
+              return (
+                <motion.a
+                  key={project.slug}
+                  href={`/projects/${project.slug}`}
+                  className={`group block ${isFeatured ? "md:col-span-2" : ""}`}
+                  layout
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.4, delay: index * 0.05 }}
                 >
-                  {/* Project thumbnail */}
-                  <div
-                    className="project-thumb mb-4"
-                    style={{
-                      background: `linear-gradient(135deg, ${project.color}20, ${project.color}08)`,
-                      color: project.color,
-                    }}
-                  >
-                    <span className="text-5xl relative z-10">{project.emoji}</span>
-                  </div>
-
-                  {/* Header */}
-                  <div className="flex items-start justify-between mb-3">
-                    <div>
-                      <h3
-                        className="text-xl font-bold transition-colors"
-                        style={{ color: "var(--text-primary)" }}
-                      >
-                        {project.name}
-                      </h3>
-                      <span
-                        className={`text-xs font-medium px-2 py-0.5 rounded-full inline-block mt-1 ${
-                          project.status === "live"
-                            ? ""
-                            : project.status === "in-development"
-                            ? ""
-                            : ""
-                        }`}
-                        style={{
-                          background:
-                            project.status === "live"
-                              ? "rgba(34,197,94,0.1)"
-                              : project.status === "in-development"
-                              ? "rgba(245,158,11,0.1)"
-                              : "rgba(148,163,184,0.1)",
-                          color:
-                            project.status === "live"
-                              ? "#16a34a"
-                              : project.status === "in-development"
-                              ? "#d97706"
-                              : "var(--text-tertiary)",
-                        }}
-                      >
-                        {project.status === "live"
-                          ? "● Live"
-                          : project.status === "in-development"
-                          ? "◌ In Development"
-                          : "○ Concept"}
-                      </span>
+                  <div className={`card card-hover overflow-hidden h-full ${isFeatured ? "flex flex-col md:flex-row" : ""}`}>
+                    {/* Thumbnail */}
+                    <div
+                      className={`project-thumb ${isFeatured ? "md:w-1/2 aspect-auto md:min-h-[280px]" : ""}`}
+                      style={{
+                        background: `linear-gradient(135deg, ${project.color}18, ${project.color}06)`,
+                        color: project.color,
+                      }}
+                    >
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <span
+                          className="font-display font-bold"
+                          style={{
+                            fontSize: isFeatured ? "3.5rem" : "2.5rem",
+                            color: project.color,
+                            opacity: 0.7,
+                          }}
+                        >
+                          {project.name.charAt(0)}
+                        </span>
+                        <span
+                          className="absolute font-display font-bold"
+                          style={{
+                            fontSize: isFeatured ? "3.5rem" : "2.5rem",
+                            color: project.color,
+                            opacity: 0.15,
+                            transform: "translate(8px, 8px)",
+                          }}
+                        >
+                          {project.name.charAt(0)}
+                        </span>
+                      </div>
                     </div>
-                    {project.liveUrl && (
-                      <ExternalLink
-                        size={16}
-                        style={{ color: "var(--text-tertiary)" }}
-                        className="transition-colors mt-1"
-                      />
-                    )}
-                  </div>
 
-                  {/* Description */}
-                  <p
-                    className="text-sm leading-relaxed mb-4"
-                    style={{ color: "var(--text-secondary)" }}
-                  >
-                    {project.tagline} — {project.description.slice(0, 100)}
-                    {project.description.length > 100 ? "..." : ""}
-                  </p>
+                    {/* Content */}
+                    <div className={`p-5 ${isFeatured ? "md:w-1/2 md:p-7" : ""}`}>
+                      <div className="flex items-start justify-between mb-2 gap-2">
+                        <div>
+                          <h3 className="font-display text-lg font-bold leading-tight" style={{ color: "var(--text-primary)" }}>
+                            {project.name}
+                          </h3>
+                          {project.status === "live" && (
+                            <span className="pill pill-live mt-1.5">
+                              <span className="pulse-dot" />
+                              Live
+                            </span>
+                          )}
+                          {project.status === "in-development" && (
+                            <span className="pill pill-building mt-1.5">In Development</span>
+                          )}
+                          {project.status === "concept" && (
+                            <span className="pill pill-concept mt-1.5">Concept</span>
+                          )}
+                        </div>
+                        <ArrowUpRight
+                          size={16}
+                          className="opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0 mt-1"
+                          style={{ color: "var(--accent)" }}
+                        />
+                      </div>
 
-                  {/* Tech pills */}
-                  <div className="flex flex-wrap gap-1.5">
-                    {project.techStack.slice(0, 4).map((tech) => (
-                      <span
-                        key={tech}
-                        className="text-[11px] px-2.5 py-1 rounded-full font-medium"
-                        style={{
-                          background: "var(--bg-hover)",
-                          color: "var(--accent)",
-                        }}
+                      <p
+                        className={`text-sm leading-relaxed mb-3 ${isFeatured ? "md:text-base" : ""}`}
+                        style={{ color: "var(--text-secondary)" }}
                       >
-                        {tech}
-                      </span>
-                    ))}
-                    {project.techStack.length > 4 && (
-                      <span
-                        className="text-[11px] px-2.5 py-1 rounded-full"
-                        style={{
-                          background: "var(--bg-hover)",
-                          color: "var(--text-tertiary)",
-                        }}
-                      >
-                        +{project.techStack.length - 4}
-                      </span>
-                    )}
+                        {project.tagline}
+                        {isFeatured ? ` — ${project.description}` : ""}
+                      </p>
+
+                      <div className="flex flex-wrap gap-1.5">
+                        {project.techStack.slice(0, isFeatured ? 6 : 4).map((tech) => (
+                          <span key={tech} className="tag">
+                            {tech}
+                          </span>
+                        ))}
+                        {project.techStack.length > (isFeatured ? 6 : 4) && (
+                          <span className="tag" style={{ color: "var(--text-tertiary)" }}>
+                            +{project.techStack.length - (isFeatured ? 6 : 4)}
+                          </span>
+                        )}
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </motion.a>
-            ))}
+                </motion.a>
+              );
+            })}
           </AnimatePresence>
         </div>
       </div>

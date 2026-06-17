@@ -1,88 +1,64 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Briefcase } from "lucide-react";
 import { experiences } from "@/lib/data";
 
 export default function Experience() {
   return (
-    <section id="experience" className="relative py-24 px-6 overflow-hidden">
-      {/* Background shape */}
-      <div
-        className="absolute -right-32 top-1/4 w-[400px] h-[400px] opacity-10"
-        style={{
-          background: "radial-gradient(circle, var(--accent) 0%, transparent 70%)",
-          borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%",
-        }}
-      />
-
-      <div className="max-w-4xl mx-auto relative">
+    <section id="experience" className="relative py-28 px-6 overflow-hidden">
+      <div className="max-w-4xl mx-auto">
         <motion.div
-          className="text-center mb-16"
+          className="mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6 }}
         >
-          <h2
-            className="text-4xl md:text-5xl font-bold mb-4"
-            style={{ color: "var(--text-primary)" }}
-          >
+          <p className="section-label mb-3">Career</p>
+          <h2 className="font-display text-4xl md:text-5xl font-bold mb-2" style={{ color: "var(--text-primary)" }}>
             Experience
           </h2>
-          <p className="text-lg" style={{ color: "var(--text-secondary)" }}>
+          <p className="text-base" style={{ color: "var(--text-tertiary)" }}>
             What I do when I&apos;m not sleeping.
           </p>
         </motion.div>
 
         {/* Timeline */}
         <div className="relative">
-          <div className="timeline-line" />
+          <div className="timeline-track">
+            <div className="timeline-fill" style={{ height: "100%" }} />
+          </div>
 
           {experiences.map((exp, index) => (
             <motion.div
               key={exp.company}
-              className="relative pl-16 pb-12 last:pb-0"
-              initial={{ opacity: 0, x: -20 }}
+              className="relative pl-14 pb-10 last:pb-0"
+              initial={{ opacity: 0, x: -15 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: index * 0.15 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <div
-                className="timeline-dot"
-                style={{ top: "6px" }}
-              />
+              <div className="timeline-dot" style={{ top: "8px" }} />
 
-              <div
-                className="glass-card rounded-2xl p-6 nature-shadow"
-              >
-                <div className="flex items-start gap-3 mb-3">
-                  <div
-                    className="p-2 rounded-xl flex-shrink-0"
-                    style={{ background: "var(--bg-hover)" }}
-                  >
-                    <Briefcase size={18} style={{ color: "var(--accent)" }} />
-                  </div>
-                  <div className="flex-1">
-                    <h3
-                      className="text-lg font-bold"
-                      style={{ color: "var(--text-primary)" }}
-                    >
+              <div className="card card-hover p-5">
+                <div className="flex items-start justify-between mb-2 gap-3">
+                  <div>
+                    <h3 className="text-base font-bold" style={{ color: "var(--text-primary)" }}>
                       {exp.role}
                     </h3>
-                    <span
-                      className="text-sm font-medium"
-                      style={{ color: "var(--accent)" }}
-                    >
+                    <p className="text-sm font-medium" style={{ color: "var(--accent)" }}>
                       {exp.company}
-                    </span>
+                    </p>
                   </div>
+                  <span
+                    className="font-display text-2xl font-bold leading-none flex-shrink-0"
+                    style={{ color: "var(--border-strong)" }}
+                  >
+                    {String(experiences.length - index).padStart(2, "0")}
+                  </span>
                 </div>
 
-                <p
-                  className="text-sm mb-3 leading-relaxed"
-                  style={{ color: "var(--text-secondary)" }}
-                >
+                <p className="text-sm mb-3 leading-relaxed" style={{ color: "var(--text-secondary)" }}>
                   {exp.description}
                 </p>
 
@@ -90,11 +66,11 @@ export default function Experience() {
                   {exp.highlights.map((h, i) => (
                     <li
                       key={i}
-                      className="text-sm flex items-start gap-2"
+                      className="text-[13px] flex items-start gap-2 leading-relaxed"
                       style={{ color: "var(--text-secondary)" }}
                     >
                       <span
-                        className="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0"
+                        className="mt-[7px] w-1 h-1 rounded-full flex-shrink-0"
                         style={{ background: "var(--accent)" }}
                       />
                       {h}
