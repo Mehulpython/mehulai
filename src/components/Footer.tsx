@@ -72,6 +72,15 @@ export default function Footer() {
               Scholar
             </a>
             <a
+              href={socials.researchgate}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs font-medium transition-colors"
+              style={{ color: "var(--text-tertiary)" }}
+            >
+              ResearchGate
+            </a>
+            <a
               href={`mailto:${socials.email}`}
               className="text-xs font-medium transition-colors"
               style={{ color: "var(--text-tertiary)" }}

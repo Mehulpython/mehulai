@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { BookOpen, Award, ExternalLink, GraduationCap, ShieldCheck } from "lucide-react";
-import { publications, conferences, education, certifications } from "@/lib/data";
+import { publications, conferences, education, certifications, socials } from "@/lib/data";
 
 export default function Research() {
   const featuredPub = publications[0];
@@ -100,16 +100,28 @@ export default function Research() {
             <h3 className="font-display text-xl font-bold" style={{ color: "var(--text-primary)" }}>
               Publications
             </h3>
-            <a
-              href="https://scholar.google.com/citations?user=fObzCLIAAAAJ"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="ml-auto flex items-center gap-1.5 text-xs font-medium transition-colors"
-              style={{ color: "var(--accent)" }}
-            >
-              Google Scholar
-              <ExternalLink size={12} />
-            </a>
+            <div className="ml-auto flex items-center gap-4">
+              <a
+                href="https://scholar.google.com/citations?user=fObzCLIAAAAJ"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 text-xs font-medium transition-colors"
+                style={{ color: "var(--accent)" }}
+              >
+                Google Scholar
+                <ExternalLink size={12} />
+              </a>
+              <a
+                href={socials.researchgate}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 text-xs font-medium transition-colors"
+                style={{ color: "var(--accent)" }}
+              >
+                ResearchGate
+                <ExternalLink size={12} />
+              </a>
+            </div>
           </motion.div>
 
           {/* Featured publication */}
