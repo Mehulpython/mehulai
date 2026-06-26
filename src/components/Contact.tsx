@@ -101,6 +101,18 @@ export default function Contact() {
                 </svg>
                 Scholar
               </a>
+              <a
+                href={socials.researchgate}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="card card-hover px-3.5 py-2 flex items-center gap-1.5 text-xs font-medium"
+                style={{ color: "var(--text-secondary)" }}
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M19.586 0c-.832 0-1.506.674-1.506 1.506v17.473l-3.446-3.446a1.506 1.506 0 0 0-2.13 2.13l6.082 6.082 6.082-6.082a1.506 1.506 0 0 0-2.13-2.13l-3.446 3.446V1.506C19.092.674 18.418 0 17.586 0h2zM12 0a12 12 0 0 0-3.874 23.356l.473-2.686A9.6 9.6 0 1 1 12 2.4v9.6l5.625-5.625L19.05 7.2 12 14.25 4.95 7.2l1.425-1.425L9.6 9V0z" />
+                </svg>
+                ResearchGate
+              </a>
             </div>
           </div>
         </motion.div>
