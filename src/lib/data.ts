@@ -16,6 +16,32 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    slug: "filebutler",
+    name: "FileButler",
+    tagline: "Say it. Verify it. It's sent.",
+    description:
+      "Voice-driven file courier — speak a command, it fetches files from your cloud storage, drafts the email, and sends only after you verify.",
+    longDescription: [
+      "FileButler turns \"get the building plan and send it to Kishan\" into a sent email in seconds. An LLM parses the command, searches your real Google Drive and Dropbox files, picks the right one, drafts the message — and nothing leaves until you approve it on a verification screen.",
+      "Beyond voice missions: an IMAP inbox with threaded reply-with-file, contacts built automatically from your mail history, a file picker that matches files by voice, and device uploads from phone or desktop. Native Google Docs export automatically, oversized files become share links, and every send is audit-logged.",
+      "Ships through a push-to-deploy pipeline with a 74-test gate — pytest, e2e, lint — landing on a homelab behind Cloudflare in under two minutes per release.",
+    ],
+    features: [
+      "Voice & text commands with LLM intent parsing",
+      "Google Drive, Dropbox + this-device uploads",
+      "Human verification gate — nothing sends unapproved",
+      "IMAP inbox & threaded replies with files",
+      "Voice-matched file picker & auto contact import",
+      "Push-to-deploy pipeline with 74-test gate",
+    ],
+    techStack: ["Next.js", "TypeScript", "FastAPI", "Python", "SQLAlchemy", "GLM (Z.AI)", "Tailwind CSS"],
+    liveUrl: "https://filebutler.mehulai.com",
+    status: "live",
+    emoji: "🤵",
+    color: "#C9A227",
+    category: "ai",
+  },
+  {
     slug: "agentdeal",
     name: "AgentDeal",
     tagline: "AI agents negotiate on your behalf",
