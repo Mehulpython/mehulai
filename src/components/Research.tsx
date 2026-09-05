@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { BookOpen, Award, ExternalLink, GraduationCap, ShieldCheck } from "lucide-react";
+import { BookOpen, Award, ExternalLink, GraduationCap, ShieldCheck , BadgeCheck} from "lucide-react";
 import { publications, conferences, education, certifications, socials } from "@/lib/data";
 
 export default function Research() {
@@ -271,6 +271,17 @@ export default function Research() {
             <span className="pill" style={{ background: "var(--bg-subtle)", color: "var(--text-tertiary)" }}>
               {certifications.length} total
             </span>
+            <a
+              href={socials.credly}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="ml-auto inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-[11px] font-semibold transition-all hover:opacity-80"
+              style={{ background: "var(--accent)", color: "white" }}
+              aria-label="Verify certifications on Credly (opens in new tab)"
+            >
+              <BadgeCheck size={13} aria-hidden="true" />
+              Verified on Credly
+            </a>
           </motion.div>
 
           {/* AWS group */}

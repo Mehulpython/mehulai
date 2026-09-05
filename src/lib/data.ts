@@ -509,4 +509,5 @@ export const socials = {
   twitter: "https://x.com/Mehulpython",
   scholar: "https://scholar.google.com/citations?user=fObzCLIAAAAJ",
   researchgate: "https://www.researchgate.net/profile/Mehulkumar-Kanadiya",
+  credly: "https://www.credly.com/users/mehulkumarkanadiya/badges/credly",
 };
