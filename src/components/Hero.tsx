@@ -71,8 +71,30 @@ export default function Hero() {
         }}
       />
 
-      {/* ── Stars (visible in dark mode) ── */}
-      <div className="absolute inset-0">
+      {/* ── Neural constellation (node stars + links) ── */}
+      <div className="absolute inset-0 pointer-events-none">
+        <svg
+          className="absolute inset-0 w-full h-full"
+          viewBox="0 0 100 55"
+          preserveAspectRatio="none"
+          style={{ opacity: 0.35 }}
+        >
+          {[0, 7, 14, 21, 28, 35, 42].map((i) => {
+            const a = i * 137.5, b = (i + 7) * 137.5;
+            const ax = (a * 0.7) % 100, ay = (a * 1.3) % 55;
+            const bx = (b * 0.7) % 100, by = (b * 1.3) % 55;
+            return (
+              <line
+                key={i}
+                x1={ax} y1={ay} x2={bx} y2={by}
+                stroke="var(--star)"
+                strokeWidth="0.08"
+                strokeDasharray="1.2 0.8"
+                style={{ animation: `twinkle ${5 + (i % 4)}s ease-in-out infinite` }}
+              />
+            );
+          })}
+        </svg>
         {Array.from({ length: 50 }).map((_, i) => {
           const seed = i * 137.5;
           const left = (seed * 0.7) % 100;
@@ -97,11 +119,18 @@ export default function Hero() {
         })}
       </div>
 
-      {/* ── Sun / Moon glow ── */}
+      {/* ── Core glow + halo node ring ── */}
       <div
         className="absolute top-[14%] left-1/2 -translate-x-1/2 w-80 h-80 rounded-full"
         style={{
           background: `radial-gradient(circle, var(--sun) 0%, transparent 65%)`,
+        }}
+      />
+      <div
+        className="absolute top-[calc(14%+5.5rem)] left-1/2 -translate-x-1/2 w-56 h-56 rounded-full"
+        style={{
+          border: `1px solid color-mix(in srgb, var(--accent) 25%, transparent)`,
+          boxShadow: `0 0 32px var(--accent-glow), inset 0 0 32px var(--accent-glow)`,
         }}
       />
 
@@ -145,6 +174,15 @@ export default function Hero() {
           fill="var(--mtn-3)"
           opacity={0.65}
         />
+        <path
+          d="M0,300 L0,250 Q50,170 120,220 Q170,130 240,190 Q290,100 370,160 Q430,80 510,140 Q570,60 660,120 Q720,50 800,110 Q870,70 950,120 Q1020,60 1100,110 Q1180,75 1260,115 Q1340,95 1440,130 L1440,300 Z"
+          fill="none"
+          stroke="var(--accent)"
+          strokeWidth="1.5"
+          strokeDasharray="10 6"
+          opacity="0.28"
+        />
+        <circle cx="180" cy="160" r="2.5" fill="var(--accent)" opacity="0.55" className="circuit-pad"/><circle cx="430" cy="140" r="2.5" fill="var(--accent)" opacity="0.55" className="circuit-pad"/><circle cx="720" cy="120" r="2.5" fill="var(--accent)" opacity="0.55" className="circuit-pad"/><circle cx="1010" cy="120" r="2.5" fill="var(--accent)" opacity="0.55" className="circuit-pad"/><circle cx="1300" cy="115" r="2.5" fill="var(--accent)" opacity="0.55" className="circuit-pad"/>
       </svg>
 
       {/* ── Mountain Layer 4 (near) ── */}
@@ -159,6 +197,15 @@ export default function Hero() {
           fill="var(--mtn-4)"
           opacity={0.75}
         />
+        <path
+          d="M0,260 L0,220 Q40,140 100,190 Q140,90 200,150 Q240,60 310,120 Q360,40 430,100 Q480,30 560,90 Q610,20 690,80 Q750,10 830,70 Q890,30 970,80 Q1040,20 1120,70 Q1190,40 1280,80 Q1360,60 1440,90 L1440,260 Z"
+          fill="none"
+          stroke="var(--accent)"
+          strokeWidth="1.5"
+          strokeDasharray="10 6"
+          opacity="0.28"
+        />
+        <circle cx="200" cy="150" r="2.5" fill="var(--accent)" opacity="0.55" className="circuit-pad"/><circle cx="480" cy="100" r="2.5" fill="var(--accent)" opacity="0.55" className="circuit-pad"/><circle cx="750" cy="70" r="2.5" fill="var(--accent)" opacity="0.55" className="circuit-pad"/><circle cx="1040" cy="70" r="2.5" fill="var(--accent)" opacity="0.55" className="circuit-pad"/><circle cx="1330" cy="80" r="2.5" fill="var(--accent)" opacity="0.55" className="circuit-pad"/>
       </svg>
 
       {/* ── Mountain Layer 5 (treeline) ── */}
@@ -168,21 +215,36 @@ export default function Hero() {
         viewBox="0 0 1440 200"
         preserveAspectRatio="none"
       >
-        {Array.from({ length: 50 }).map((_, i) => {
-          const x = i * 29 + Math.sin(i * 2.3) * 8;
-          const h = 70 + Math.sin(i * 1.7) * 35 + Math.cos(i * 3.1) * 15;
-          const w = 8 + (i % 4) * 2;
+        {Array.from({ length: 72 }).map((_, i) => {
+          const x = i * 20 + 4;
+          const h = 50 + Math.abs(Math.sin(i * 1.7)) * 60 + Math.abs(Math.cos(i * 0.9)) * 40;
+          const w = i % 9 === 0 ? 6 : 3;
+          const lit = i % 9 === 4;
           return (
-            <polygon
+            <rect
               key={i}
-              points={`${x},200 ${x + w},${200 - h} ${x + w * 2},200`}
-              fill="var(--tree)"
-              opacity={0.7 + (i % 3) * 0.1}
+              x={x}
+              y={200 - h}
+              width={w}
+              height={h}
+              fill={lit ? "var(--accent)" : "var(--tree)"}
+              opacity={lit ? 0.5 : 0.75 + (i % 3) * 0.08}
             />
           );
         })}
-        <rect x="0" y="175" width="1440" height="25" fill="var(--tree)" opacity={0.85} />
+        <rect x="0" y="185" width="1440" height="15" fill="var(--tree)" opacity={0.9} />
       </svg>
+
+      {/* ── Data-mist scanlines ── */}
+      <div
+        className="absolute bottom-0 inset-x-0 h-[38%] pointer-events-none"
+        style={{
+          background:
+            "repeating-linear-gradient(180deg, transparent 0 6px, color-mix(in srgb, var(--accent) 4%, transparent) 6px 7px)",
+          maskImage: "linear-gradient(180deg, transparent, black 40%, transparent)",
+          WebkitMaskImage: "linear-gradient(180deg, transparent, black 40%, transparent)",
+        }}
+      />
 
       {/* ── Mist layers ── */}
       <div
@@ -233,7 +295,14 @@ export default function Hero() {
 
         <motion.h1
           className="font-display text-7xl md:text-[9rem] lg:text-[10rem] font-bold tracking-tighter leading-none"
-          style={{ color: "var(--hero-text)" }}
+          style={{
+            color: "var(--hero-text)",
+            backgroundImage: "var(--gradient-accent)",
+            WebkitBackgroundClip: "text",
+            backgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            filter: "drop-shadow(0 0 24px var(--accent-glow))",
+          }}
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
