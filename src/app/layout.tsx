@@ -1,5 +1,14 @@
 import type { Metadata } from "next";
+import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+
+const display = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--space-grotesk",
+  display: "swap",
+});
+const body = Inter({ subsets: ["latin"], variable: "--inter", display: "swap" });
+const mono = JetBrains_Mono({ subsets: ["latin"], variable: "--jetbrains-mono", display: "swap" });
 
 export const metadata: Metadata = {
   title: "Mehul — Software Engineer & AI Builder",
@@ -48,7 +57,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className={`${display.variable} ${body.variable} ${mono.variable}`}>
       <head>
         {/* Prevent flash of wrong theme */}
         <script
@@ -57,7 +66,7 @@ export default function RootLayout({
               (function() {
                 try {
                   var theme = localStorage.getItem('theme');
-                  if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                  if (theme !== 'light') {
                     document.documentElement.setAttribute('data-theme', 'dark');
                   }
                 } catch(e) {}

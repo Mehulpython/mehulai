@@ -45,10 +45,8 @@ export default function Navbar() {
 
   useEffect(() => {
     const saved = localStorage.getItem("theme");
-    if (
-      saved === "dark" ||
-      (!saved && window.matchMedia("(prefers-color-scheme: dark)").matches)
-    ) {
+    if (saved !== "light") {
+      // dark-first: AI mode is the default
       setDark(true);
       document.documentElement.setAttribute("data-theme", "dark");
     }
