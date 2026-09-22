@@ -406,10 +406,11 @@ html { scrollbar-color: color-mix(in srgb, var(--accent) 35%, var(--bg-inset)) v
   position: fixed;
   top: 0;
   left: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--accent), var(--accent-light));
-  z-index: 9999;
-  transition: width 0.1s linear;
+  height: 2.5px;
+  background: var(--gradient-accent);
+  box-shadow: 0 0 12px var(--accent-glow), 0 0 4px var(--accent);
+  z-index: 100;
+  border-radius: 0 2px 2px 0;
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -432,9 +433,10 @@ html { scrollbar-color: color-mix(in srgb, var(--accent) 35%, var(--bg-inset)) v
   left: 0;
   top: 0;
   width: 100%;
-  background: linear-gradient(180deg, var(--accent), var(--accent-light));
+  background: linear-gradient(180deg, var(--accent), var(--accent-secondary), var(--accent-light));
   border-radius: 9999px;
   transition: height 0.15s linear;
+  box-shadow: 0 0 12px var(--accent-glow);
 }
 
 .timeline-dot {
@@ -446,7 +448,15 @@ html { scrollbar-color: color-mix(in srgb, var(--accent) 35%, var(--bg-inset)) v
   background: var(--accent);
   border: 3px solid var(--bg-base);
   z-index: 2;
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-sm), 0 0 10px var(--accent-glow);
+}
+.timeline-dot::after {
+  content: '';
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
+  animation: pulse-dot 2.4s ease-in-out infinite;
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -517,6 +527,18 @@ html { scrollbar-color: color-mix(in srgb, var(--accent) 35%, var(--bg-inset)) v
 }
 
 .nav-link:hover { color: var(--text-primary); }
+.nav-link { position: relative; }
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 100%;
+  bottom: -4px;
+  height: 1.5px;
+  background: var(--gradient-accent);
+  transition: right 0.25s ease;
+  border-radius: 2px;
+}
+.nav-link:hover::after, .nav-link[data-active="true"]::after { right: 0; }
 
 .nav-link.active {
   color: var(--accent);
@@ -541,4 +563,21 @@ html { scrollbar-color: color-mix(in srgb, var(--accent) 35%, var(--bg-inset)) v
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+
+/* ─── Footer & section backdrops ─── */
+.blueprint-grid {
+  background-image:
+    linear-gradient(color-mix(in srgb, var(--accent) 5%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--accent) 5%, transparent) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+.hairline-gradient {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--accent) 45%, transparent), transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-hover::before, .circuit-pad, .card-featured { animation: none !important; transition: none !important; }
 }

@@ -9,7 +9,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
   return (
     <main className="min-h-screen" style={{ background: "var(--bg-base)" }}>
       {/* Header with brand gradient */}
-      <div className="relative overflow-hidden">
+      <div className="relative overflow-hidden blueprint-grid">
         <div
           className="absolute inset-0"
           style={{
@@ -47,7 +47,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
             {/* Project initial badge */}
             <div
               className="font-display text-6xl md:text-7xl font-bold mb-4 leading-none"
-              style={{ color: project.color, opacity: 0.8 }}
+              style={{ color: project.color, opacity: 0.9, filter: `drop-shadow(0 0 20px ${project.color}55)` }}
             >
               {project.name.charAt(0)}
             </div>

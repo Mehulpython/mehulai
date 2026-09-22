@@ -6,7 +6,8 @@ import { socials } from "@/lib/data";
 
 export default function Footer() {
   return (
-    <footer className="relative pt-12 pb-10 px-6 overflow-hidden">
+    <footer className="relative pt-12 pb-10 px-6 overflow-hidden blueprint-grid">
+      <div className="hairline-gradient absolute top-0 left-0 right-0" aria-hidden="true" />
       {/* Mountain silhouette */}
       <svg
         className="absolute top-0 w-full"
