@@ -41,7 +41,7 @@ export default function Stats() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {/* Featured stat */}
           <motion.div
-            className="col-span-2 md:col-span-2 md:row-span-2 card card-hover p-8 flex flex-col justify-between"
+            className="col-span-2 md:col-span-2 md:row-span-2 card card-featured card-hover p-8 flex flex-col justify-between"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -55,7 +55,7 @@ export default function Stats() {
             </div>
             <div>
               <div
-                className="font-display text-6xl md:text-7xl font-bold leading-none mb-2"
+                className="font-mono text-6xl md:text-7xl font-bold leading-none mb-2 text-gradient"
                 style={{ color: "var(--accent)" }}
               >
                 <AnimatedCounter value={featured.value} suffix={featured.suffix} />
@@ -77,7 +77,7 @@ export default function Stats() {
               transition={{ duration: 0.5, delay: (index + 1) * 0.1 }}
             >
               <div
-                className="font-display text-3xl md:text-4xl font-bold mb-1"
+                className="font-mono text-3xl md:text-4xl font-bold mb-1"
                 style={{ color: "var(--text-primary)" }}
               >
                 <AnimatedCounter value={stat.value} suffix={stat.suffix} />

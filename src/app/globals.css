@@ -186,23 +186,60 @@ html { scrollbar-color: color-mix(in srgb, var(--accent) 35%, var(--bg-inset)) v
 
 /* ─── Cards ─── */
 .card {
-  background: var(--bg-card);
+  position: relative;
+  background: color-mix(in srgb, var(--bg-card) 82%, transparent);
+  backdrop-filter: blur(14px) saturate(1.3);
+  -webkit-backdrop-filter: blur(14px) saturate(1.3);
   border: 1px solid var(--border);
   border-radius: 16px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
   transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  overflow: hidden;
 }
 
 .card-hover:hover {
-  border-color: var(--border-strong);
-  box-shadow: var(--shadow-md);
-  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--border-strong));
+  box-shadow: var(--shadow-md), 0 0 28px var(--accent-glow);
+  transform: translateY(-4px) perspective(900px) rotateX(1.2deg);
 }
 
+/* Shine sweep on hover */
+.card-hover::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 30%, rgba(255, 255, 255, 0.07) 48%, rgba(255, 255, 255, 0.12) 50%, rgba(255, 255, 255, 0.07) 52%, transparent 70%);
+  transform: translateX(-120%);
+  transition: transform 0.7s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+.card-hover:hover::before { transform: translateX(120%); }
+
 .card-elevated {
-  background: var(--bg-card);
+  position: relative;
+  background: color-mix(in srgb, var(--bg-card) 88%, transparent);
+  backdrop-filter: blur(18px) saturate(1.4);
+  -webkit-backdrop-filter: blur(18px) saturate(1.4);
   border: 1px solid var(--border);
   border-radius: 20px;
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Animated conic border for featured elements */
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+@keyframes rotate-angle { to { --angle: 360deg; } }
+.card-featured {
+  border: none;
+  background:
+    linear-gradient(var(--bg-card), var(--bg-card)) padding-box,
+    conic-gradient(from var(--angle), var(--accent), var(--accent-secondary), var(--accent)) border-box;
+  border: 1px solid transparent;
+  animation: rotate-angle 6s linear infinite;
 }
 
 /* ─── Glass (sparingly) ─── */
@@ -270,17 +307,18 @@ html { scrollbar-color: color-mix(in srgb, var(--accent) 35%, var(--bg-inset)) v
   border-radius: 12px;
   font-weight: 500;
   font-size: 14px;
-  background: var(--accent);
-  color: white;
+  background: var(--gradient-accent);
+  color: var(--bg-base);
   border: none;
   cursor: pointer;
   transition: all 0.2s ease;
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-sm), 0 0 20px var(--accent-glow);
+  font-weight: 600;
 }
 .btn-primary:hover {
-  background: var(--accent-hover);
+  filter: brightness(1.12);
   transform: translateY(-1px);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-md), 0 0 32px var(--accent-glow);
 }
 
 .btn-ghost {
@@ -305,6 +343,8 @@ html { scrollbar-color: color-mix(in srgb, var(--accent) 35%, var(--bg-inset)) v
 
 /* ─── Tags (tech stack) ─── */
 .tag {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
   font-size: 11px;
   font-weight: 500;
   padding: 4px 10px;
